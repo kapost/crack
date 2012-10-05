@@ -9,7 +9,8 @@ require 'strscan'
 module Crack
   class JSON
     def self.parse(json)
-      YAML.load(unescape(convert_json_to_yaml(json)))
+      #YAML.load(unescape(convert_json_to_yaml(json)))
+      YAML.load(json) # this was breaking things and seems to work without the rest of it
     rescue ArgumentError => e
       raise ParseError, "Invalid JSON string"
     end
